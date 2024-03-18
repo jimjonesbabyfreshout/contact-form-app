@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="spoofedId">Sender ID:</label>
+            <input type="text" id="spoofedId" placeholder="Optional - Do NOT use for spam or phishing">
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" cols="50" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="response"></p>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('/submit_form.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to send message');
+                }
+
+                const data = await response.json();
+                document.getElementById('response').innerText = `Hello ${data.name}, your message (${data.message}) was sent successfully from ${data.spoofedId || 'anonymous'}.`;
+                document.getElementById('contactForm').reset();
+            } catch (error) {
+                console.error(error);
+                document.getElementById('response').innerText = 'An error occurred while sending the message.';
+            }
+        });
+    </script>
+</body>
+</html>

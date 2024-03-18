@@ -1,0 +1,24 @@
+{
+  "name": "contact-form-app",
+  "version": "1.0.0",
+  "description": "A simple contact form application",
+  "main": "index.js",
+  "scripts": {
+    "fund": "npm fund",
+    "build": "npm i -g n && npm fund && npm audit fix",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "contact",
+    "form",
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "http": "0.0.0",
+    "local-web-server": "^5.3.1",
+    "node-fetch": "^3.3.2"
+  }
+}

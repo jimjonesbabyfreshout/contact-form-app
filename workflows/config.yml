@@ -1,0 +1,23 @@
+# config.yml
+theme: jekyll-theme-cayman
+layout: page
+title: GitHub Pages
+description: The best way to host your website.
+baseurl: /
+url: https://github.com
+author: GitHub
+email: support@github.com
+twitter: github
+github: github
+linkedin: github
+colors:
+  primary: #000000
+  secondary: #ffffff
+  accent: #ff0000
+fonts:
+  primary: Helvetica, Arial, sans-serif
+  secondary: Georgia, Times New Roman, serif
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed

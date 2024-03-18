@@ -1,0 +1,30 @@
+# Jekyllrb configuration file
+# See https://jekyllrb.com/docs/configuration/ for more information
+
+source: ./
+destination: ./build
+
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:path/
+
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+
+# Exclude files from being processed by Jekyll
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Generate a GitHub Pages compatible _config.yml file
+remote_theme: jekyll/theme-hacker
