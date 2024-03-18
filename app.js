@@ -1,8 +1,6 @@
 const submitForm = async (formData) => {
   try {
-    const fetch = await import("node-fetch");
-
-    const res = await fetch.default("http://localhost:3000/submit_form.php", {
+    const res = await fetch("http://localhost:3000/submit_form.php", {
       method: "POST",
       body: formData,
     });
@@ -16,5 +14,3 @@ const submitForm = async (formData) => {
     throw new Error("An error occurred while sending the message");
   }
 };
-
-module.exports = submitForm;
